@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9941A7D82DDCE49B00B2AA3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941A7D72DDCE49B00B2AA3C /* AppDelegate.swift */; };
+		9941A7DC2DDCE49B00B2AA3C /* CryptoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941A7DB2DDCE49B00B2AA3C /* CryptoListViewController.swift */; };
+		9941A7E22DDCE49B00B2AA3C /* CryptoTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9941A7E02DDCE49B00B2AA3C /* CryptoTracker.xcdatamodeld */; };
+		9941A7E42DDCE49D00B2AA3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9941A7E32DDCE49D00B2AA3C /* Assets.xcassets */; };
+		9941A7E72DDCE49D00B2AA3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9941A7E52DDCE49D00B2AA3C /* LaunchScreen.storyboard */; };
+		9941A7F02DDCE4BA00B2AA3C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9941A7EF2DDCE4BA00B2AA3C /* SnapKit */; };
+		9941A7F32DDCE4C900B2AA3C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9941A7F22DDCE4C900B2AA3C /* Alamofire */; };
+		9941A7F72DDDE34E00B2AA3C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941A7F62DDDE34E00B2AA3C /* Coordinator.swift */; };
+		9941A7FA2DDDE40B00B2AA3C /* CryptoListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941A7F92DDDE40B00B2AA3C /* CryptoListCoordinator.swift */; };
+		9941A7FE2DDDF6C800B2AA3C /* CryptoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941A7FD2DDDF6C800B2AA3C /* CryptoListViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9941A7D42DDCE49B00B2AA3C /* CryptoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9941A7D72DDCE49B00B2AA3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9941A7DB2DDCE49B00B2AA3C /* CryptoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewController.swift; sourceTree = "<group>"; };
+		9941A7E12DDCE49B00B2AA3C /* CryptoTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoTracker.xcdatamodel; sourceTree = "<group>"; };
+		9941A7E32DDCE49D00B2AA3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9941A7E62DDCE49D00B2AA3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9941A7E82DDCE49D00B2AA3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9941A7F62DDDE34E00B2AA3C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		9941A7F92DDDE40B00B2AA3C /* CryptoListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListCoordinator.swift; sourceTree = "<group>"; };
+		9941A7FD2DDDF6C800B2AA3C /* CryptoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9941A7D12DDCE49B00B2AA3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9941A7F02DDCE4BA00B2AA3C /* SnapKit in Frameworks */,
+				9941A7F32DDCE4C900B2AA3C /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9941A7CB2DDCE49B00B2AA3C = {
+			isa = PBXGroup;
+			children = (
+				9941A7D62DDCE49B00B2AA3C /* CryptoTracker */,
+				9941A7D52DDCE49B00B2AA3C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9941A7D52DDCE49B00B2AA3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9941A7D42DDCE49B00B2AA3C /* CryptoTracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9941A7D62DDCE49B00B2AA3C /* CryptoTracker */ = {
+			isa = PBXGroup;
+			children = (
+				9941A7FB2DDDE65600B2AA3C /* App */,
+				9941A7F42DDDE31000B2AA3C /* Protocols */,
+				9941A7D72DDCE49B00B2AA3C /* AppDelegate.swift */,
+				9941A7E32DDCE49D00B2AA3C /* Assets.xcassets */,
+				9941A7E82DDCE49D00B2AA3C /* Info.plist */,
+				9941A7E52DDCE49D00B2AA3C /* LaunchScreen.storyboard */,
+				9941A7E02DDCE49B00B2AA3C /* CryptoTracker.xcdatamodeld */,
+			);
+			path = CryptoTracker;
+			sourceTree = "<group>";
+		};
+		9941A7F42DDDE31000B2AA3C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9941A7F62DDDE34E00B2AA3C /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9941A7FB2DDDE65600B2AA3C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9941A7FC2DDDEE4900B2AA3C /* CryptoList */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9941A7FC2DDDEE4900B2AA3C /* CryptoList */ = {
+			isa = PBXGroup;
+			children = (
+				9941A7F92DDDE40B00B2AA3C /* CryptoListCoordinator.swift */,
+				9941A7DB2DDCE49B00B2AA3C /* CryptoListViewController.swift */,
+				9941A7FD2DDDF6C800B2AA3C /* CryptoListViewModel.swift */,
+			);
+			path = CryptoList;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9941A7D32DDCE49B00B2AA3C /* CryptoTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9941A7EB2DDCE49D00B2AA3C /* Build configuration list for PBXNativeTarget "CryptoTracker" */;
+			buildPhases = (
+				9941A7D02DDCE49B00B2AA3C /* Sources */,
+				9941A7D12DDCE49B00B2AA3C /* Frameworks */,
+				9941A7D22DDCE49B00B2AA3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CryptoTracker;
+			packageProductDependencies = (
+				9941A7EF2DDCE4BA00B2AA3C /* SnapKit */,
+				9941A7F22DDCE4C900B2AA3C /* Alamofire */,
+			);
+			productName = CryptoTracker;
+			productReference = 9941A7D42DDCE49B00B2AA3C /* CryptoTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9941A7CC2DDCE49B00B2AA3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					9941A7D32DDCE49B00B2AA3C = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 9941A7CF2DDCE49B00B2AA3C /* Build configuration list for PBXProject "CryptoTracker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9941A7CB2DDCE49B00B2AA3C;
+			packageReferences = (
+				9941A7EE2DDCE4BA00B2AA3C /* XCRemoteSwiftPackageReference "Snapkit" */,
+				9941A7F12DDCE4C900B2AA3C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			productRefGroup = 9941A7D52DDCE49B00B2AA3C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9941A7D32DDCE49B00B2AA3C /* CryptoTracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9941A7D22DDCE49B00B2AA3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9941A7E72DDCE49D00B2AA3C /* LaunchScreen.storyboard in Resources */,
+				9941A7E42DDCE49D00B2AA3C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9941A7D02DDCE49B00B2AA3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9941A7F72DDDE34E00B2AA3C /* Coordinator.swift in Sources */,
+				9941A7FE2DDDF6C800B2AA3C /* CryptoListViewModel.swift in Sources */,
+				9941A7DC2DDCE49B00B2AA3C /* CryptoListViewController.swift in Sources */,
+				9941A7FA2DDDE40B00B2AA3C /* CryptoListCoordinator.swift in Sources */,
+				9941A7D82DDCE49B00B2AA3C /* AppDelegate.swift in Sources */,
+				9941A7E22DDCE49B00B2AA3C /* CryptoTracker.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9941A7E52DDCE49D00B2AA3C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9941A7E62DDCE49D00B2AA3C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9941A7E92DDCE49D00B2AA3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9941A7EA2DDCE49D00B2AA3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9941A7EC2DDCE49D00B2AA3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H5A9D4GT66;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoTracker/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rusl0.CryptoTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9941A7ED2DDCE49D00B2AA3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H5A9D4GT66;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoTracker/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rusl0.CryptoTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9941A7CF2DDCE49B00B2AA3C /* Build configuration list for PBXProject "CryptoTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9941A7E92DDCE49D00B2AA3C /* Debug */,
+				9941A7EA2DDCE49D00B2AA3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9941A7EB2DDCE49D00B2AA3C /* Build configuration list for PBXNativeTarget "CryptoTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9941A7EC2DDCE49D00B2AA3C /* Debug */,
+				9941A7ED2DDCE49D00B2AA3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9941A7EE2DDCE4BA00B2AA3C /* XCRemoteSwiftPackageReference "Snapkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/Snapkit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		9941A7F12DDCE4C900B2AA3C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9941A7EF2DDCE4BA00B2AA3C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9941A7EE2DDCE4BA00B2AA3C /* XCRemoteSwiftPackageReference "Snapkit" */;
+			productName = SnapKit;
+		};
+		9941A7F22DDCE4C900B2AA3C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9941A7F12DDCE4C900B2AA3C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		9941A7E02DDCE49B00B2AA3C /* CryptoTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9941A7E12DDCE49B00B2AA3C /* CryptoTracker.xcdatamodel */,
+			);
+			currentVersion = 9941A7E12DDCE49B00B2AA3C /* CryptoTracker.xcdatamodel */;
+			path = CryptoTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9941A7CC2DDCE49B00B2AA3C /* Project object */;
+}
