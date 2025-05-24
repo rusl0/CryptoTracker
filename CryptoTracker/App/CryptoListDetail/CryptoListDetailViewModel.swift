@@ -12,18 +12,26 @@ import Alamofire
 
 final class CryptoListDetailViewModel {
     private var cancellables = Set<AnyCancellable>()
-    private var coordinator: DetailCoordinator
+    private var coordinator: BackableCoordinator
     
     let coinInfo: CoinInfo
     
     @Published var dataState: RequestState = .idle
     @Published var chartData: [ChartDataEntry] = []
+    @Published var isFavorite: Bool
     
-    init(coordinator : DetailCoordinator, coinInfo: CoinInfo) {
+    init(coordinator : BackableCoordinator, coinInfo: CoinInfo) {
         self.coinInfo = coinInfo
         self.coordinator = coordinator
+        
+        let array = UserDefaults.standard.array(forKey: "favorites") as? [String]
+        if array != nil {
+            self.isFavorite = array!.contains(coinInfo.id)
+        } else {
+            self.isFavorite = false
+        }
     }
-    
+
     func fetchChartData(period: DataPeriod = .day) {
         let requestUrl = EndpointAPI.coinsChartData(id: coinInfo.id, dataPeriod: period).url
         
@@ -58,7 +66,19 @@ final class CryptoListDetailViewModel {
                 }
             }
             .store(in: &cancellables)
-            
+    }
+    
+    func updateFavorite() {
+        var array:[String] = UserDefaults.standard.array(forKey: "favorites") as? [String] ?? []
+        
+        if isFavorite {
+            array.removeAll { $0 == coinInfo.id }
+        } else {
+            array.append(coinInfo.id)
+        }
+        
+        isFavorite = !isFavorite
+        UserDefaults.standard.set(array, forKey: "favorites")
     }
     
     func goBack() {

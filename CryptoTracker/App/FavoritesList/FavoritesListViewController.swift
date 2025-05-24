@@ -9,9 +9,10 @@ import UIKit
 import Combine
 import SnapKit
 
-final class CryptoListViewController: UIViewController {
+final class FavoritesListViewController: UIViewController {
 
-    var viewModel: CryptoListViewModel
+    var viewModel: FavoritesListViewModel
+    private var cancellables = Set<AnyCancellable>()
     
     lazy var cryptoList: UITableView = {
         let tableView = UITableView()
@@ -21,14 +22,7 @@ final class CryptoListViewController: UIViewController {
         return tableView
     }()
     
-    lazy var refreshControl: UIRefreshControl = {
-        let refresh = UIRefreshControl()
-        return refresh
-    }()
-    
-    private var cancellables = Set<AnyCancellable>()
-    
-    init(viewModel: CryptoListViewModel) {
+    init(viewModel: FavoritesListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -42,7 +36,13 @@ final class CryptoListViewController: UIViewController {
         
         setupUI()
         bindViewModel()
+        viewModel.startUpdating()
         viewModel.fetchData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        viewModel.stopUpdationg()
+        super.viewWillDisappear(animated)
     }
 
     private func bindViewModel() {
@@ -51,46 +51,28 @@ final class CryptoListViewController: UIViewController {
             .sink {[weak self] _ in
                 guard let self = self else {return}
                 self.cryptoList.reloadData()
-                if self.cryptoList.refreshControl!.isRefreshing {
-                    self.cryptoList.refreshControl!.endRefreshing()
-                }
             }
             .store(in: &cancellables)
     }
     
     private func setupUI() {
-        
-        let favorites = UIBarButtonItem(image: UIImage(systemName: "book"), style: .plain, target: self, action: #selector(favorites(sender:)))
-        
-        navigationItem.leftBarButtonItem = favorites
-        
+        title = "Favorites"
         view.addSubview(cryptoList)
         
-        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
-        cryptoList.refreshControl = refreshControl
         cryptoList.dataSource = self
-        cryptoList.delegate = self
         cryptoList.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
-    @objc private func refresh(sender: UIRefreshControl) {
-        viewModel.fetchData()
-    }
-    
-    @objc func favorites(sender: UIBarButtonItem){
-        viewModel.showFavorites()
+    override func didMove(toParent parent: UIViewController?) {
+        if parent == nil {
+            viewModel.goBack()
+        }
     }
 }
 
-extension CryptoListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.showDetailWithItem(indexPath.row)
-    }
-}
-
-extension CryptoListViewController: UITableViewDataSource {
+extension FavoritesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.cryptCoinsData.count
     }
@@ -117,3 +99,4 @@ extension CryptoListViewController: UITableViewDataSource {
         cell.layoutIfNeeded()
     }
 }
+

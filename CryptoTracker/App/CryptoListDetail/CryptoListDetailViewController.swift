@@ -76,6 +76,18 @@ final class CryptoListDetailViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+        
+        viewModel.$isFavorite
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                guard let self = self else { return }
+                if value {
+                    self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "bookmark.fill")
+                } else {
+                    self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "bookmark")
+                }
+            }
+            .store(in: &cancellables)
     }
     
     func setData() {
@@ -95,6 +107,10 @@ final class CryptoListDetailViewController: UIViewController {
         if parent == nil {
             viewModel.goBack()
         }
+    }
+    
+    @objc func favorites(sender: UIBarButtonItem){
+        viewModel.updateFavorite()
     }
     
     @objc func changePeriod(sender: UISegmentedControl) {
@@ -118,6 +134,10 @@ final class CryptoListDetailViewController: UIViewController {
         view.backgroundColor = UIColor.white
         
         self.title = viewModel.coinInfo.name
+        
+        let favorites = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(favorites(sender:)))
+        
+        navigationItem.rightBarButtonItem = favorites
         
         view.addSubview(periodSelectorView)
         periodSelectorView.snp.makeConstraints { make in

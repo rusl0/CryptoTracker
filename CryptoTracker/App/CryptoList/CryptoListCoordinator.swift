@@ -10,6 +10,7 @@ import UIKit
 
 protocol ListCoordinator: AnyObject {
     func showDetail(with coinInfo: CoinInfo)
+    func showFavorites()
 }
 
 final class CryptoListCoordinator: Coordinator {
@@ -31,10 +32,18 @@ final class CryptoListCoordinator: Coordinator {
 }
 
 extension CryptoListCoordinator: ListCoordinator {
+    func showFavorites() {
+        let favorites = FavoritesListCoordinator(navigationController: navigationController)
+        children.append(favorites)
+        favorites.parentCoordinator = self
+        favorites.start()
+    }
+    
     func showDetail(with coinInfo: CoinInfo) {
         let detailCoordinator = CryptoListDetailCoordinator(navigationController: navigationController, coinInfo: coinInfo)
         children.append(detailCoordinator)
         detailCoordinator.parentCoordinator = self
         detailCoordinator.start()
     }
+    
 }

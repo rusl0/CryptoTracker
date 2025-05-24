@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-protocol DetailCoordinator: AnyObject {
-    func goBack()
-}
-
 final class CryptoListDetailCoordinator: Coordinator {
     
     var parentCoordinator: Coordinator?
@@ -32,7 +28,7 @@ final class CryptoListDetailCoordinator: Coordinator {
     }
 }
 
-extension CryptoListDetailCoordinator: DetailCoordinator {
+extension CryptoListDetailCoordinator: BackableCoordinator {
     func goBack() {
         parentCoordinator?.childDidFinish(self)
     }

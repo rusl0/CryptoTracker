@@ -9,23 +9,47 @@ import Foundation
 import Combine
 import Alamofire
 
-final class CryptoListViewModel {
+final class FavoritesListViewModel {
     private var cancellables = Set<AnyCancellable>()
     
-    var coordinator: ListCoordinator
+    var coordinator: BackableCoordinator
+    private let timer: Timer.TimerPublisher
+    
+    private var favorites: [String] = []
     
     @Published var cryptCoinsData: [CoinInfo]
     @Published var dataState: RequestState
     
-    init(coordinator: ListCoordinator) {
+    init(coordinator: BackableCoordinator) {
         self.coordinator = coordinator
         self.cryptCoinsData = []
         self.dataState = .idle
+        timer = Timer.publish(every: 60, on: .main, in: .default)
+    }
+    
+    func startUpdating() {
+        
+        guard let array = UserDefaults.standard.array(forKey: "favorites") as? [String],
+        !array.isEmpty else {
+            return
+        }
+        favorites = array
+        
+        timer
+            .autoconnect()
+            .sink { _ in
+                self.fetchData()
+            }
+            .store(in: &cancellables)
+    }
+    
+    func stopUpdationg() {
+        timer.connect().cancel()
     }
     
     func fetchData()
     {
-        let requestUrl = EndpointAPI.coinsMarket().url
+        let requestUrl = EndpointAPI.coinsMarket(ids: favorites).url
         AF.request(requestUrl)
             .validate()
             .publishDecodable(type: [CoinInfo].self)
@@ -51,17 +75,12 @@ final class CryptoListViewModel {
             } receiveValue: { [weak self] value in
                 guard let self = self else {return}
                 self.cryptCoinsData = value
+                print("Updated")
             }
             .store(in: &cancellables)
     }
     
-    func showDetailWithItem(_ index: Int) {
-        if index < cryptCoinsData.count {
-            coordinator.showDetail(with: cryptCoinsData[index])
-        }
-    }
-    
-    func showFavorites() {
-        coordinator.showFavorites()
+    func goBack() {
+        coordinator.goBack()
     }
 }
