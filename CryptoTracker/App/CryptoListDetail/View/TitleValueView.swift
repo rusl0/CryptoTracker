@@ -20,7 +20,7 @@ final class TitleValueView: UIView {
     
     lazy var value: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textColor = .black
         label.textAlignment = .right
         return label
@@ -46,13 +46,13 @@ final class TitleValueView: UIView {
         title.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)
             make.top.bottom.equalToSuperview().offset(2)
-            make.trailing.equalToSuperview().multipliedBy(0.6)
+            make.trailing.lessThanOrEqualTo(value.snp.leading)
         }
         
         value.snp.makeConstraints { make in
             make.leading.equalTo(title.snp.trailing)
             make.top.bottom.equalToSuperview().offset(2)
-            make.trailing.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-10)
         }
     }
 }

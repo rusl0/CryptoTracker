@@ -45,7 +45,8 @@ final class CryptoListViewController: UIViewController {
     
     private func setupCoinList() {
         cryptoList = UITableView()
-        cryptoList.register(UITableViewCell.self, forCellReuseIdentifier: "CoinCell")
+        cryptoList.register(CoinTableViewCell.self, forCellReuseIdentifier: "CoinCell")
+        cryptoList.rowHeight = UITableView.automaticDimension
         cryptoList.dataSource = self
         cryptoList.delegate = self
         
@@ -70,13 +71,24 @@ extension CryptoListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let coinData = viewModel.cryptCoinsData[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as! CoinTableViewCell
         
-        var content = cell.defaultContentConfiguration()
-        content.text = coinData.name
-        content.secondaryText = String(coinData.price)
-        cell.contentConfiguration = content
+        cell.name.text = coinData.name
+        cell.symbol.text = coinData.symbol
+        cell.price.text = currencyNumberFormatter(value: coinData.price)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.layoutIfNeeded()
     }
 }
