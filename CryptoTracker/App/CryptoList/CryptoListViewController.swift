@@ -17,7 +17,7 @@ final class CryptoListViewController: UIViewController {
     private var cryptoList: UITableView!
     private var cancellables = Set<AnyCancellable>()
     
-    init(viewModel: CryptoListViewModel) {
+    init(viewModel: CryptoListViewModel, coordinator: CryptoListCoordinator? = nil) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,7 +35,7 @@ final class CryptoListViewController: UIViewController {
     }
 
     private func bindViewModel() {
-        viewModel.$crytoCoinsData
+        viewModel.$cryptCoinsData
             .receive(on: DispatchQueue.main)
             .sink {[weak self] _ in
                 self?.cryptoList.reloadData()
@@ -58,21 +58,23 @@ final class CryptoListViewController: UIViewController {
 }
 
 extension CryptoListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.showDetailWithItem(indexPath.row)
+    }
 }
 
 extension CryptoListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.crytoCoinsData.count
+        return viewModel.cryptCoinsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let coinData = viewModel.crytoCoinsData[indexPath.row]
+        let coinData = viewModel.cryptCoinsData[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath)
         
         var content = cell.defaultContentConfiguration()
-        content.text = coinData.text
-        content.secondaryText = coinData.detail
+        content.text = coinData.name
+        content.secondaryText = String(coinData.price)
         cell.contentConfiguration = content
         
         return cell

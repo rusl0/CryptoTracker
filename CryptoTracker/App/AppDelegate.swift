@@ -12,13 +12,13 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var cryptoListCoordinator: CryptoListCoordinator?
+    var appCoordinator: AppCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let navContrl = UINavigationController()
-        cryptoListCoordinator = CryptoListCoordinator(navigationController: navContrl)
-        cryptoListCoordinator?.start()
+        appCoordinator = AppCoordinator(navigationController: navContrl)
+        appCoordinator?.start()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navContrl

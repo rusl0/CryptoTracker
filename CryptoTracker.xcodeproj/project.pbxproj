@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9908D5232DE07CB50084180C /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D5222DE07CB50084180C /* Coin.swift */; };
+		9908D5252DE07D280084180C /* CoinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D5242DE07D280084180C /* CoinInfo.swift */; };
+		9908D5272DE094730084180C /* CoinChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D5262DE094730084180C /* CoinChartData.swift */; };
+		9908D5292DE095BB0084180C /* EndpointAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D5282DE095BB0084180C /* EndpointAPI.swift */; };
+		9908D52B2DE096E70084180C /* CoinsSortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D52A2DE096E70084180C /* CoinsSortOrder.swift */; };
+		9908D52D2DE09A6B0084180C /* DataPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D52C2DE09A6B0084180C /* DataPeriod.swift */; };
+		9908D52F2DE0C1FE0084180C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D52E2DE0C1FE0084180C /* AppCoordinator.swift */; };
+		9908D5332DE0CBC50084180C /* CryptoListDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D5322DE0CBC50084180C /* CryptoListDetailCoordinator.swift */; };
+		9908D5372DE0CE520084180C /* CryptoListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D5362DE0CE520084180C /* CryptoListDetailViewModel.swift */; };
+		9908D5392DE0CE810084180C /* CryptoListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D5382DE0CE810084180C /* CryptoListDetailViewController.swift */; };
+		9908D53C2DE0D0F90084180C /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9908D53B2DE0D0F90084180C /* DGCharts */; };
+		9908D53E2DE1D89E0084180C /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D53D2DE1D89E0084180C /* RequestState.swift */; };
+		9908D5412DE1E57E0084180C /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908D5402DE1E57E0084180C /* TitleValueView.swift */; };
 		9941A7D82DDCE49B00B2AA3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941A7D72DDCE49B00B2AA3C /* AppDelegate.swift */; };
 		9941A7DC2DDCE49B00B2AA3C /* CryptoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9941A7DB2DDCE49B00B2AA3C /* CryptoListViewController.swift */; };
 		9941A7E22DDCE49B00B2AA3C /* CryptoTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9941A7E02DDCE49B00B2AA3C /* CryptoTracker.xcdatamodeld */; };
@@ -20,6 +33,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9908D5222DE07CB50084180C /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		9908D5242DE07D280084180C /* CoinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfo.swift; sourceTree = "<group>"; };
+		9908D5262DE094730084180C /* CoinChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinChartData.swift; sourceTree = "<group>"; };
+		9908D5282DE095BB0084180C /* EndpointAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointAPI.swift; sourceTree = "<group>"; };
+		9908D52A2DE096E70084180C /* CoinsSortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsSortOrder.swift; sourceTree = "<group>"; };
+		9908D52C2DE09A6B0084180C /* DataPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPeriod.swift; sourceTree = "<group>"; };
+		9908D52E2DE0C1FE0084180C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		9908D5322DE0CBC50084180C /* CryptoListDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListDetailCoordinator.swift; sourceTree = "<group>"; };
+		9908D5362DE0CE520084180C /* CryptoListDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListDetailViewModel.swift; sourceTree = "<group>"; };
+		9908D5382DE0CE810084180C /* CryptoListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListDetailViewController.swift; sourceTree = "<group>"; };
+		9908D53D2DE1D89E0084180C /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
+		9908D5402DE1E57E0084180C /* TitleValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
 		9941A7D42DDCE49B00B2AA3C /* CryptoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9941A7D72DDCE49B00B2AA3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9941A7DB2DDCE49B00B2AA3C /* CryptoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9941A7F02DDCE4BA00B2AA3C /* SnapKit in Frameworks */,
+				9908D53C2DE0D0F90084180C /* DGCharts in Frameworks */,
 				9941A7F32DDCE4C900B2AA3C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +71,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9908D5202DE07C720084180C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9908D5222DE07CB50084180C /* Coin.swift */,
+				9908D5242DE07D280084180C /* CoinInfo.swift */,
+				9908D5262DE094730084180C /* CoinChartData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9908D5212DE07C8F0084180C /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				9908D5282DE095BB0084180C /* EndpointAPI.swift */,
+				9908D52A2DE096E70084180C /* CoinsSortOrder.swift */,
+				9908D52C2DE09A6B0084180C /* DataPeriod.swift */,
+				9908D53D2DE1D89E0084180C /* RequestState.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		9908D5302DE0C72C0084180C /* CryptoListDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9908D53F2DE1E4E80084180C /* View */,
+				9908D5322DE0CBC50084180C /* CryptoListDetailCoordinator.swift */,
+				9908D5382DE0CE810084180C /* CryptoListDetailViewController.swift */,
+				9908D5362DE0CE520084180C /* CryptoListDetailViewModel.swift */,
+			);
+			path = CryptoListDetail;
+			sourceTree = "<group>";
+		};
+		9908D53F2DE1E4E80084180C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9908D5402DE1E57E0084180C /* TitleValueView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9941A7CB2DDCE49B00B2AA3C = {
 			isa = PBXGroup;
 			children = (
@@ -64,9 +130,10 @@
 		9941A7D62DDCE49B00B2AA3C /* CryptoTracker */ = {
 			isa = PBXGroup;
 			children = (
+				9908D5212DE07C8F0084180C /* Enums */,
+				9908D5202DE07C720084180C /* Models */,
 				9941A7FB2DDDE65600B2AA3C /* App */,
 				9941A7F42DDDE31000B2AA3C /* Protocols */,
-				9941A7D72DDCE49B00B2AA3C /* AppDelegate.swift */,
 				9941A7E32DDCE49D00B2AA3C /* Assets.xcassets */,
 				9941A7E82DDCE49D00B2AA3C /* Info.plist */,
 				9941A7E52DDCE49D00B2AA3C /* LaunchScreen.storyboard */,
@@ -86,7 +153,10 @@
 		9941A7FB2DDDE65600B2AA3C /* App */ = {
 			isa = PBXGroup;
 			children = (
+				9908D52E2DE0C1FE0084180C /* AppCoordinator.swift */,
+				9941A7D72DDCE49B00B2AA3C /* AppDelegate.swift */,
 				9941A7FC2DDDEE4900B2AA3C /* CryptoList */,
+				9908D5302DE0C72C0084180C /* CryptoListDetail */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -120,6 +190,7 @@
 			packageProductDependencies = (
 				9941A7EF2DDCE4BA00B2AA3C /* SnapKit */,
 				9941A7F22DDCE4C900B2AA3C /* Alamofire */,
+				9908D53B2DE0D0F90084180C /* DGCharts */,
 			);
 			productName = CryptoTracker;
 			productReference = 9941A7D42DDCE49B00B2AA3C /* CryptoTracker.app */;
@@ -152,6 +223,7 @@
 			packageReferences = (
 				9941A7EE2DDCE4BA00B2AA3C /* XCRemoteSwiftPackageReference "Snapkit" */,
 				9941A7F12DDCE4C900B2AA3C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9908D53A2DE0D0F90084180C /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 9941A7D52DDCE49B00B2AA3C /* Products */;
 			projectDirPath = "";
@@ -179,12 +251,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9908D52B2DE096E70084180C /* CoinsSortOrder.swift in Sources */,
 				9941A7F72DDDE34E00B2AA3C /* Coordinator.swift in Sources */,
+				9908D5332DE0CBC50084180C /* CryptoListDetailCoordinator.swift in Sources */,
+				9908D5392DE0CE810084180C /* CryptoListDetailViewController.swift in Sources */,
+				9908D52F2DE0C1FE0084180C /* AppCoordinator.swift in Sources */,
 				9941A7FE2DDDF6C800B2AA3C /* CryptoListViewModel.swift in Sources */,
 				9941A7DC2DDCE49B00B2AA3C /* CryptoListViewController.swift in Sources */,
+				9908D5372DE0CE520084180C /* CryptoListDetailViewModel.swift in Sources */,
+				9908D52D2DE09A6B0084180C /* DataPeriod.swift in Sources */,
+				9908D5292DE095BB0084180C /* EndpointAPI.swift in Sources */,
 				9941A7FA2DDDE40B00B2AA3C /* CryptoListCoordinator.swift in Sources */,
+				9908D5412DE1E57E0084180C /* TitleValueView.swift in Sources */,
 				9941A7D82DDCE49B00B2AA3C /* AppDelegate.swift in Sources */,
 				9941A7E22DDCE49B00B2AA3C /* CryptoTracker.xcdatamodeld in Sources */,
+				9908D5252DE07D280084180C /* CoinInfo.swift in Sources */,
+				9908D5272DE094730084180C /* CoinChartData.swift in Sources */,
+				9908D5232DE07CB50084180C /* Coin.swift in Sources */,
+				9908D53E2DE1D89E0084180C /* RequestState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +484,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9908D53A2DE0D0F90084180C /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		9941A7EE2DDCE4BA00B2AA3C /* XCRemoteSwiftPackageReference "Snapkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/Snapkit.git";
@@ -419,6 +511,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9908D53B2DE0D0F90084180C /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9908D53A2DE0D0F90084180C /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
 		9941A7EF2DDCE4BA00B2AA3C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9941A7EE2DDCE4BA00B2AA3C /* XCRemoteSwiftPackageReference "Snapkit" */;

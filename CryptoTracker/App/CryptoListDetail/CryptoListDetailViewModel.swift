@@ -1,32 +1,35 @@
 //
-//  CryptoListViewModel.swift
+//  CryptoListDetailViewModel.swift
 //  CryptoTracker
 //
-//  Created by Ruslan Kandratsenka on 21.05.25.
+//  Created by Ruslan Kandratsenka on 23.05.25.
 //
 
 import Foundation
 import Combine
+import DGCharts
 import Alamofire
 
-final class CryptoListViewModel {
+final class CryptoListDetailViewModel {
     private var cancellables = Set<AnyCancellable>()
+    private var coordinator: DetailCoordinator
     
-    var coordinator: ListCoordinator
+    let coinInfo: CoinInfo
     
-    @Published var cryptCoinsData: [CoinInfo] = []
     @Published var dataState: RequestState = .idle
+    @Published var chartData: [ChartDataEntry] = []
     
-    init(coordinator: ListCoordinator) {
+    init(coordinator : DetailCoordinator, coinInfo: CoinInfo) {
+        self.coinInfo = coinInfo
         self.coordinator = coordinator
     }
     
-    func fetchData()
-    {
-        let requestUrl = EndpointAPI.coinsMarket().url
+    func fetchChartData(period: DataPeriod = .day) {
+        let requestUrl = EndpointAPI.coinsChartData(id: coinInfo.id, dataPeriod: period).url
+        
         AF.request(requestUrl)
             .validate()
-            .publishDecodable(type: [CoinInfo].self)
+            .publishDecodable(type: CoinChartData.self)
             .value()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
@@ -49,14 +52,16 @@ final class CryptoListViewModel {
                 }
             } receiveValue: { [weak self] value in
                 guard let self = self else {return}
-                self.cryptCoinsData = value
+                
+                self.chartData = value.prices.enumerated().map { (index,price) in
+                    ChartDataEntry(x: Double(index), y: price[1], data: Date(timeIntervalSince1970: price[0]))
+                }
             }
             .store(in: &cancellables)
+            
     }
     
-    func showDetailWithItem(_ index: Int) {
-        if index < cryptCoinsData.count {
-            coordinator.showDetail(with: cryptCoinsData[index])
-        }
+    func goBack() {
+        coordinator.goBack()
     }
 }
