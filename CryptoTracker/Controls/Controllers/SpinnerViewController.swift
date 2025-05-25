@@ -9,16 +9,10 @@ import UIKit
 import SnapKit
 
 class SpinnerViewController: UIViewController {
-    private var spinner = UIActivityIndicatorView(style: .large)
-    
     override func loadView() {
-        self.view = UIView()
+        let spinner = SpinnerView()
+        self.view = spinner
         view.backgroundColor = UIColor(white: 0, alpha: 0.1)
-        
-        view.addSubview(spinner)
-        spinner.startAnimating()
-        spinner.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
+        spinner.startAnimation()
     }
 }

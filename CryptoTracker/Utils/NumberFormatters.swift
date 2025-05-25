@@ -7,7 +7,10 @@
 
 import Foundation
 
-func currencyNumberFormatter(value: Double) -> String {
+func currencyNumberFormatter(value: Double?) -> String {
+    
+    guard let value = value else { return "No data" }
+    
     let formatter = NumberFormatter()
     formatter.numberStyle = .decimal
     formatter.maximumFractionDigits = 3

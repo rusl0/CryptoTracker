@@ -202,6 +202,7 @@ final class CryptoListDetailViewController: UIViewController {
             make.height.equalTo(50)
         }
         mimPricePerDayView.title.text = "Min Price 24h"
+        
         mimPricePerDayView.value.text = currencyNumberFormatter(value: viewModel.coinInfo.minPricePerDay)
 
         let priceChangePerDayView = TitleValueView()

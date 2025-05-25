@@ -14,10 +14,10 @@ struct CoinInfo {
     let price: Double
     let marketCap: Double
     let totalVolume: Double
-    let maxPricePerDay: Double
-    let minPricePerDay: Double
-    let priceChangePerDay: Double
-    let priceChangePercentagePerDay: Double
+    let maxPricePerDay: Double?
+    let minPricePerDay: Double?
+    let priceChangePerDay: Double?
+    let priceChangePercentagePerDay: Double?
 }
 
 extension CoinInfo: Decodable {
@@ -42,9 +42,9 @@ extension CoinInfo: Decodable {
         self.price = try container.decode(Double.self, forKey: .price)
         self.marketCap = try container.decode(Double.self, forKey: .marketCap)
         self.totalVolume = try container.decode(Double.self, forKey: .totalVolume)
-        self.maxPricePerDay = try container.decode(Double.self, forKey: .maxPricePerDay)
-        self.minPricePerDay = try container.decode(Double.self, forKey: .minPricePerDay)
-        self.priceChangePerDay = try container.decode(Double.self, forKey: .priceChangePerDay)
-        self.priceChangePercentagePerDay = try container.decode(Double.self, forKey: .priceChangePercentagePerDay)
+        self.maxPricePerDay = try container.decode(Double?.self, forKey: .maxPricePerDay)
+        self.minPricePerDay = try container.decode(Double?.self, forKey: .minPricePerDay)
+        self.priceChangePerDay = try container.decode(Double?.self, forKey: .priceChangePerDay)
+        self.priceChangePercentagePerDay = try container.decode(Double?.self, forKey: .priceChangePercentagePerDay)
     }
 }

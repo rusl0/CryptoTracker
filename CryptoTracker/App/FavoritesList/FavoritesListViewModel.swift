@@ -75,7 +75,6 @@ final class FavoritesListViewModel {
             } receiveValue: { [weak self] value in
                 guard let self = self else {return}
                 self.cryptCoinsData = value
-                print("Updated")
             }
             .store(in: &cancellables)
     }

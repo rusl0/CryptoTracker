@@ -16,6 +16,7 @@ final class CryptoListViewModel {
     
     private var filtered: [CoinInfo] = []
     private var total: [CoinInfo] = []
+    private var currentPage = 1
     
     @Published private(set)  var cryptCoinsData: [CoinInfo]
     @Published private(set) var dataState: RequestState
@@ -30,7 +31,8 @@ final class CryptoListViewModel {
     
     func fetchData(appending: Bool = false)
     {
-        let requestUrl = EndpointAPI.coinsMarket().url
+        let requestUrl = EndpointAPI.coinsMarket(page: currentPage).url
+        print(requestUrl)
         AF.request(requestUrl)
             .validate()
             .publishDecodable(type: [CoinInfo].self)
@@ -49,6 +51,7 @@ final class CryptoListViewModel {
                         if error.isResponseSerializationError {
                             self.dataState = .failed(.decoding)
                         }
+                        print(error)
                     case .finished:
                         break
                         
@@ -59,9 +62,9 @@ final class CryptoListViewModel {
                 if appending {
                     self.total.append(contentsOf: value)
                 } else {
+                    self.currentPage = 1
                     self.total = value
                 }
-                
                 self.cryptCoinsData = self.total
                 self.dataState = .idle
             }
@@ -94,5 +97,10 @@ final class CryptoListViewModel {
     
     func showFavorites() {
         coordinator.showFavorites()
+    }
+    
+    func loadMoreData() {
+        currentPage += 1
+        fetchData(appending: true)
     }
 }

@@ -21,12 +21,17 @@ final class CryptoListViewController: UIViewController {
         return tableView
     }()
     
+    lazy var footerSpinner: SpinnerView = {
+        let spinner = SpinnerView()
+        return spinner
+    }()
+    
     lazy private var refreshControl: UIRefreshControl = {
         let refresh = UIRefreshControl()
         return refresh
     }()
     
-    lazy private var spinner: SpinnerViewController = {
+    lazy private var loadingSpinner: SpinnerViewController = {
         let controller = SpinnerViewController()
         return controller
     }()
@@ -40,6 +45,7 @@ final class CryptoListViewController: UIViewController {
     }()
     
     private var cancellables = Set<AnyCancellable>()
+    private var loadMoreStatus = false
     
     init(viewModel: CryptoListViewModel) {
         self.viewModel = viewModel
@@ -64,6 +70,13 @@ final class CryptoListViewController: UIViewController {
             .sink {[weak self] _ in
                 guard let self = self else {return}
                 self.cryptoList.reloadData()
+                
+                if self.loadMoreStatus {
+                    self.footerSpinner.stopAnimation()
+                    self.footerSpinner.isHidden = true
+                    self.loadMoreStatus = false
+                }
+                
                 guard let refresh = self.cryptoList.refreshControl else { return }
                 
                 if refresh.isRefreshing {
@@ -91,10 +104,8 @@ final class CryptoListViewController: UIViewController {
                 guard let self = self else {return}
                 if filtered {
                     self.cryptoList.refreshControl = nil
-                    //disable pagination
                 } else {
                     self.cryptoList.refreshControl = self.refreshControl
-                    // enable pagination
                 }
             }
             .store(in: &cancellables)
@@ -102,14 +113,14 @@ final class CryptoListViewController: UIViewController {
     
     private func spinnerView(needShow: Bool) {
         if needShow {
-            addChild(spinner)
-            spinner.view.frame = view.frame
-            view.addSubview(spinner.view)
-            spinner.didMove(toParent: self)
+            addChild(loadingSpinner)
+            loadingSpinner.view.frame = view.frame
+            view.addSubview(loadingSpinner.view)
+            loadingSpinner.didMove(toParent: self)
         } else {
-            spinner.willMove(toParent: nil)
-            spinner.view.removeFromSuperview()
-            spinner.removeFromParent()
+            loadingSpinner.willMove(toParent: nil)
+            loadingSpinner.view.removeFromSuperview()
+            loadingSpinner.removeFromParent()
         }
     }
     
@@ -135,6 +146,9 @@ final class CryptoListViewController: UIViewController {
         cryptoList.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        cryptoList.tableFooterView = footerSpinner
+        footerSpinner.isHidden = true
     }
     
     @objc private func refresh(sender: UIRefreshControl) {
@@ -143,6 +157,27 @@ final class CryptoListViewController: UIViewController {
     
     @objc func favorites(sender: UIBarButtonItem){
         viewModel.showFavorites()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.self.height
+        let delta = maximumOffset - currentOffset
+        
+        if delta <= 0 {
+            loadMoteData()
+        }
+    }
+    
+    func loadMoteData() {
+        if !(viewModel.isFiltered || viewModel.cryptCoinsData.isEmpty) {
+            if !loadMoreStatus {
+                loadMoreStatus = true
+                footerSpinner.startAnimation()
+                footerSpinner.isHidden = false
+                viewModel.loadMoreData()
+            }
+        }
     }
 }
 
