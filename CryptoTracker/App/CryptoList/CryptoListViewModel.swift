@@ -14,16 +14,21 @@ final class CryptoListViewModel {
     
     var coordinator: ListCoordinator
     
-    @Published var cryptCoinsData: [CoinInfo]
-    @Published var dataState: RequestState
+    private var filtered: [CoinInfo] = []
+    private var total: [CoinInfo] = []
+    
+    @Published private(set)  var cryptCoinsData: [CoinInfo]
+    @Published private(set) var dataState: RequestState
+    @Published private(set) var isFiltered: Bool
     
     init(coordinator: ListCoordinator) {
         self.coordinator = coordinator
         self.cryptCoinsData = []
-        self.dataState = .idle
+        self.dataState = .loading
+        self.isFiltered = false
     }
     
-    func fetchData()
+    func fetchData(appending: Bool = false)
     {
         let requestUrl = EndpointAPI.coinsMarket().url
         AF.request(requestUrl)
@@ -50,9 +55,35 @@ final class CryptoListViewModel {
                 }
             } receiveValue: { [weak self] value in
                 guard let self = self else {return}
-                self.cryptCoinsData = value
+                
+                if appending {
+                    self.total.append(contentsOf: value)
+                } else {
+                    self.total = value
+                }
+                
+                self.cryptCoinsData = self.total
+                self.dataState = .idle
             }
             .store(in: &cancellables)
+    }
+    
+    func applyFilter(coinName: String) {
+        if !coinName.isEmpty {
+            cryptCoinsData = total.filter{ info in
+                info.name.lowercased().hasPrefix(coinName.lowercased())
+            }
+        } else {
+            cryptCoinsData = total
+        }
+        isFiltered = true
+    }
+    
+    func clearFilter() {
+        if isFiltered {
+            cryptCoinsData = total
+            isFiltered = false
+        }
     }
     
     func showDetailWithItem(_ index: Int) {

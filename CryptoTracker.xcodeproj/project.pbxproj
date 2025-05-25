@@ -36,6 +36,7 @@
 		99A745D62DE265A400298271 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745D32DE265A400298271 /* FavoritesListViewModel.swift */; };
 		99A745D72DE265A400298271 /* FavoritesListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745D42DE265A400298271 /* FavoritesListCoordinator.swift */; };
 		99A745D92DE267E800298271 /* BackableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745D82DE267E800298271 /* BackableCoordinator.swift */; };
+		99A745DE2DE3328E00298271 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745DD2DE3328E00298271 /* SpinnerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		99A745D32DE265A400298271 /* FavoritesListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListViewModel.swift; sourceTree = "<group>"; };
 		99A745D42DE265A400298271 /* FavoritesListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListCoordinator.swift; sourceTree = "<group>"; };
 		99A745D82DE267E800298271 /* BackableCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackableCoordinator.swift; sourceTree = "<group>"; };
+		99A745DD2DE3328E00298271 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,8 +191,8 @@
 		99A745CE2DE219CC00298271 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				99A745CC2DE207AD00298271 /* CoinTableViewCell.swift */,
-				9908D5402DE1E57E0084180C /* TitleValueView.swift */,
+				99A745DC2DE3326A00298271 /* Controllers */,
+				99A745DA2DE3320000298271 /* Views */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -203,6 +205,23 @@
 				99A745D32DE265A400298271 /* FavoritesListViewModel.swift */,
 			);
 			path = FavoritesList;
+			sourceTree = "<group>";
+		};
+		99A745DA2DE3320000298271 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99A745CC2DE207AD00298271 /* CoinTableViewCell.swift */,
+				9908D5402DE1E57E0084180C /* TitleValueView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		99A745DC2DE3326A00298271 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				99A745DD2DE3328E00298271 /* SpinnerViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +308,7 @@
 				99A745CA2DE2032400298271 /* NumberFormatters.swift in Sources */,
 				9908D52B2DE096E70084180C /* CoinsSortOrder.swift in Sources */,
 				9941A7F72DDDE34E00B2AA3C /* Coordinator.swift in Sources */,
+				99A745DE2DE3328E00298271 /* SpinnerViewController.swift in Sources */,
 				9908D5332DE0CBC50084180C /* CryptoListDetailCoordinator.swift in Sources */,
 				9908D5392DE0CE810084180C /* CryptoListDetailViewController.swift in Sources */,
 				9908D52F2DE0C1FE0084180C /* AppCoordinator.swift in Sources */,

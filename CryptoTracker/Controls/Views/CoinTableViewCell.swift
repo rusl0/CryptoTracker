@@ -61,21 +61,21 @@ class CoinTableViewCell: UITableViewCell {
     
     private func setupLayout() {
         name.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.top.equalToSuperview().offset(2)
+            make.leading.equalToSuperview().offset(15)
+            make.top.equalToSuperview().offset(3)
             make.trailing.equalToSuperview().multipliedBy(0.5)
         }
         
         symbol.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(15)
             make.top.equalTo(name.snp.bottom)
-            make.bottom.equalToSuperview().offset(-2)
+            make.bottom.equalToSuperview().offset(-3)
         }
         
         price.snp.makeConstraints { make in
             make.leading.greaterThanOrEqualTo(name.snp.trailing)
             make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-10)
+            make.trailing.equalToSuperview().offset(-15)
         }
     }
 
