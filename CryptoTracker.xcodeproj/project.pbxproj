@@ -38,6 +38,7 @@
 		99A745D92DE267E800298271 /* BackableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745D82DE267E800298271 /* BackableCoordinator.swift */; };
 		99A745DE2DE3328E00298271 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745DD2DE3328E00298271 /* SpinnerViewController.swift */; };
 		99A745E02DE362CF00298271 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745DF2DE362CF00298271 /* SpinnerView.swift */; };
+		99A745E22DE37F6800298271 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745E12DE37F6800298271 /* DefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		99A745D82DE267E800298271 /* BackableCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackableCoordinator.swift; sourceTree = "<group>"; };
 		99A745DD2DE3328E00298271 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		99A745DF2DE362CF00298271 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		99A745E12DE37F6800298271 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				9908D52A2DE096E70084180C /* CoinsSortOrder.swift */,
 				9908D52C2DE09A6B0084180C /* DataPeriod.swift */,
 				9908D53D2DE1D89E0084180C /* RequestState.swift */,
+				99A745E12DE37F6800298271 /* DefaultsKeys.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				9941A7FA2DDDE40B00B2AA3C /* CryptoListCoordinator.swift in Sources */,
 				9908D5412DE1E57E0084180C /* TitleValueView.swift in Sources */,
 				9941A7D82DDCE49B00B2AA3C /* AppDelegate.swift in Sources */,
+				99A745E22DE37F6800298271 /* DefaultsKeys.swift in Sources */,
 				99A745CD2DE207AD00298271 /* CoinTableViewCell.swift in Sources */,
 				9941A7E22DDCE49B00B2AA3C /* CryptoTracker.xcdatamodeld in Sources */,
 				9908D5252DE07D280084180C /* CoinInfo.swift in Sources */,

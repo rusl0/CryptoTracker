@@ -18,7 +18,7 @@ final class CryptoListViewModel {
     private var total: [CoinInfo] = []
     private var currentPage = 1
     
-    @Published private(set)  var cryptCoinsData: [CoinInfo]
+    @Published private(set) var cryptCoinsData: [CoinInfo]
     @Published private(set) var dataState: RequestState
     @Published private(set) var isFiltered: Bool
     
@@ -31,8 +31,15 @@ final class CryptoListViewModel {
     
     func fetchData(appending: Bool = false)
     {
-        let requestUrl = EndpointAPI.coinsMarket(page: currentPage).url
-        print(requestUrl)
+        let sortOrder: CoinsSortOrder
+        if let rawSortOrder = UserDefaults.standard.string(forKey: DefaultsKeys.sortOrder.rawValue) {
+            sortOrder = CoinsSortOrder(rawValue: rawSortOrder)!
+        } else {
+            sortOrder = .markerCapDesc
+            UserDefaults.standard.set(sortOrder.rawValue, forKey: DefaultsKeys.sortOrder.rawValue)
+        }
+        
+        let requestUrl = EndpointAPI.coinsMarket(page: currentPage,sortOrder: sortOrder).url
         AF.request(requestUrl)
             .validate()
             .publishDecodable(type: [CoinInfo].self)

@@ -29,7 +29,7 @@ final class FavoritesListViewModel {
     
     func startUpdating() {
         
-        guard let array = UserDefaults.standard.array(forKey: "favorites") as? [String],
+        guard let array = UserDefaults.standard.array(forKey: DefaultsKeys.favorites.rawValue) as? [String],
         !array.isEmpty else {
             return
         }

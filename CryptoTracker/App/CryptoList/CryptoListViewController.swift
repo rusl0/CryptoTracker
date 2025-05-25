@@ -134,8 +134,9 @@ final class CryptoListViewController: UIViewController {
     
     private func setupUI() {
         let favorites = UIBarButtonItem(image: UIImage(systemName: "book"), style: .plain, target: self, action: #selector(favorites(sender:)))
-        
         navigationItem.leftBarButtonItem = favorites
+
+        setupMenu()
         
         view.addSubview(cryptoList)
         
@@ -151,6 +152,30 @@ final class CryptoListViewController: UIViewController {
         footerSpinner.isHidden = true
     }
     
+    private func setupMenu() {
+        let value: String = UserDefaults.standard.string(forKey: DefaultsKeys.sortOrder.rawValue) ?? "market_cap_desc"
+        
+        let storedOrder = CoinsSortOrder(rawValue: value)
+    
+        var actions: [UIAction] = []
+        for  order in CoinsSortOrder.allCases {
+            
+            let action  = UIAction(title: order.description, state: order == storedOrder ? .on : .off) {_ in
+                self.selectSortOrder(order)
+            }
+            actions.append(action)
+        }
+        
+        let menu = UIMenu(options: .singleSelection,children: actions)
+                
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(systemName: "arrow.up.arrow.down"), primaryAction: nil, menu: menu)
+    }
+    
+    private func selectSortOrder(_ order: CoinsSortOrder) {
+        UserDefaults.standard.set(order.rawValue, forKey: DefaultsKeys.sortOrder.rawValue)
+        viewModel.fetchData()
+    }
+    
     @objc private func refresh(sender: UIRefreshControl) {
         viewModel.fetchData()
     }
@@ -158,6 +183,7 @@ final class CryptoListViewController: UIViewController {
     @objc func favorites(sender: UIBarButtonItem){
         viewModel.showFavorites()
     }
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y

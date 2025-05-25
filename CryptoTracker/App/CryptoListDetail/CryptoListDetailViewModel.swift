@@ -24,7 +24,7 @@ final class CryptoListDetailViewModel {
         self.coinInfo = coinInfo
         self.coordinator = coordinator
         
-        let array = UserDefaults.standard.array(forKey: "favorites") as? [String]
+        let array = UserDefaults.standard.array(forKey: DefaultsKeys.favorites.rawValue) as? [String]
         if array != nil {
             self.isFavorite = array!.contains(coinInfo.id)
         } else {
@@ -69,7 +69,7 @@ final class CryptoListDetailViewModel {
     }
     
     func updateFavorite() {
-        var array:[String] = UserDefaults.standard.array(forKey: "favorites") as? [String] ?? []
+        var array:[String] = UserDefaults.standard.array(forKey: DefaultsKeys.favorites.rawValue) as? [String] ?? []
         
         if isFavorite {
             array.removeAll { $0 == coinInfo.id }
@@ -78,7 +78,7 @@ final class CryptoListDetailViewModel {
         }
         
         isFavorite = !isFavorite
-        UserDefaults.standard.set(array, forKey: "favorites")
+        UserDefaults.standard.set(array, forKey: DefaultsKeys.favorites.rawValue)
     }
     
     func goBack() {
