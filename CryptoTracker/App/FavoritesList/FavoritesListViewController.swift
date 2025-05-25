@@ -53,6 +53,29 @@ final class FavoritesListViewController: UIViewController {
                 self.cryptoList.reloadData()
             }
             .store(in: &cancellables)
+        viewModel.$dataState
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                guard let self = self else {return}
+                switch value {
+                    case .failed(let error):
+                        switch error {
+                            case .noInternet:
+                                self.showAlertMessage(title: "Alert", message: "No Internet connection\nLocal data will be used")
+                            case .backend(let code):
+                                if code == 429 {
+                                    self.showAlertMessage(title: "Alert", message: "Too many requests")
+                                } else {
+                                    self.showAlertMessage(title: "Alert", message: "Server error")
+                                }
+                            case .decoding:
+                                self.showAlertMessage(title: "Alert", message: "Data parsing error")
+                        }
+                    default:
+                        break
+                }
+            }
+            .store(in: &cancellables)
     }
     
     private func setupUI() {

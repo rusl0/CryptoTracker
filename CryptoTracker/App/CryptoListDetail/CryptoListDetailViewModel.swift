@@ -48,7 +48,9 @@ final class CryptoListDetailViewModel {
                             self.dataState = .failed(.backend(code))
                         }
                         if error.isSessionTaskError {
-                            self.dataState = .failed(.noInternet)
+                            if self.dataState != .failed(.noInternet) {
+                                self.dataState = .failed(.noInternet)
+                            }
                         }
                         if error.isResponseSerializationError {
                             self.dataState = .failed(.decoding)

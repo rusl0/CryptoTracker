@@ -42,6 +42,7 @@
 		99A745E52DE38FF600298271 /* PersistentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745E42DE38FF600298271 /* PersistentController.swift */; };
 		99A745E72DE3A05D00298271 /* CoinData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745E62DE3A05D00298271 /* CoinData+Extension.swift */; };
 		99A745E92DE3A17F00298271 /* CoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745E82DE3A17F00298271 /* CoreDataSource.swift */; };
+		99A745EB2DE3BABF00298271 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745EA2DE3BABF00298271 /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		99A745E42DE38FF600298271 /* PersistentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentController.swift; sourceTree = "<group>"; };
 		99A745E62DE3A05D00298271 /* CoinData+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinData+Extension.swift"; sourceTree = "<group>"; };
 		99A745E82DE3A17F00298271 /* CoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSource.swift; sourceTree = "<group>"; };
+		99A745EA2DE3BABF00298271 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				99A745C92DE2032400298271 /* NumberFormatters.swift */,
+				99A745EA2DE3BABF00298271 /* UIViewController+Alert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			files = (
 				99A745D72DE265A400298271 /* FavoritesListCoordinator.swift in Sources */,
 				99A745CA2DE2032400298271 /* NumberFormatters.swift in Sources */,
+				99A745EB2DE3BABF00298271 /* UIViewController+Alert.swift in Sources */,
 				9908D52B2DE096E70084180C /* CoinsSortOrder.swift in Sources */,
 				9941A7F72DDDE34E00B2AA3C /* Coordinator.swift in Sources */,
 				99A745DE2DE3328E00298271 /* SpinnerViewController.swift in Sources */,

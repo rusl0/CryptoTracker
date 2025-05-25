@@ -68,9 +68,20 @@ final class CryptoListDetailViewController: UIViewController {
         viewModel.$dataState
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
+                guard let self = self else { return }
                 switch state {
                     case .failed(let error):
-                        break
+                        switch error {
+                            case .noInternet:
+                                self.showAlertMessage(title: "Alert", message: "No Internet connection\nLocal data will be used")
+                            case .backend(let code):
+                                if code == 429 {
+                                    self.showAlertMessage(title: "Alert", message: "Too many requests")
+                                }
+                                break
+                            case .decoding:
+                                self.showAlertMessage(title: "Alert", message: "Data parsing error")
+                        }
                     default:
                         break
                 }

@@ -94,11 +94,15 @@ final class CryptoListViewController: UIViewController {
                     case .failed(let error):
                         switch error {
                             case .noInternet:
-                                print("no interner")
+                                self.showAlertMessage(title: "Alert", message: "No Internet connection\nLocal data will be used")
                             case .backend(let code):
-                                print("server error code: \(code)")
+                                if code == 429 {
+                                    self.showAlertMessage(title: "Alert", message: "Too many requests")
+                                } else {
+                                    self.showAlertMessage(title: "Alert", message: "Server error")
+                                }
                             case .decoding:
-                                print("parsing error")
+                                self.showAlertMessage(title: "Alert", message: "Data parsing error")
                         }
                         self.spinnerView(needShow: false)
                     case .idle:
