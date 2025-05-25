@@ -13,6 +13,7 @@ final class FavoritesListViewModel {
     private var cancellables = Set<AnyCancellable>()
     
     var coordinator: BackableCoordinator
+    private var coreDataDataSoource: CoreDataSource = CoreDataSource()
     private let timer: Timer.TimerPublisher
     
     private var favorites: [String] = []
@@ -64,6 +65,8 @@ final class FavoritesListViewModel {
                         }
                         if error.isSessionTaskError {
                             if self.dataState != .failed(.noInternet) {
+                                let ids = UserDefaults.standard.array(forKey: DefaultsKeys.favorites.rawValue) as? [String] ?? []
+                                self.cryptCoinsData = self.coreDataDataSoource.loadData(idList: ids)
                                 self.dataState = .failed(.noInternet)
                             }
                         }

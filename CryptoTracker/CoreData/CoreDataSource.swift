@@ -25,6 +25,23 @@ final class CoreDataSource {
         }
     }
     
+    func loadData(idList: [String]) -> [CoinInfo] {
+        if idList.isEmpty {
+            return []
+        }
+        
+        let fetchRequest = CoinData.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id IN %@", idList)
+        
+        do {
+            let coinsData: [CoinData] = try persistent.viewContext.fetch(fetchRequest)
+            return coinsData.map { $0.toInfo() }
+        } catch {
+            return []
+        }
+    }
+        
+    
     func addCoins(_ coins: [CoinInfo]) {
         let _ = coins.map { CoinData.create(from: $0, in: persistent.viewContext) }
         persistent.saveContext()
