@@ -48,8 +48,15 @@ final class FavoritesListViewController: UIViewController {
     private func bindViewModel() {
         viewModel.$cryptCoinsData
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] _ in
+            .sink {[weak self] values in
                 guard let self = self else {return}
+                
+                if values.isEmpty {
+                    self.cryptoList.setEmptyMessage("No data")
+                } else {
+                    self.cryptoList.restore()
+                }
+                
                 self.cryptoList.reloadData()
             }
             .store(in: &cancellables)

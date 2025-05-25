@@ -43,6 +43,7 @@
 		99A745E72DE3A05D00298271 /* CoinData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745E62DE3A05D00298271 /* CoinData+Extension.swift */; };
 		99A745E92DE3A17F00298271 /* CoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745E82DE3A17F00298271 /* CoreDataSource.swift */; };
 		99A745EB2DE3BABF00298271 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745EA2DE3BABF00298271 /* UIViewController+Alert.swift */; };
+		99A745ED2DE3C62700298271 /* UITableVIew+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A745EC2DE3C62700298271 /* UITableVIew+Empty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		99A745E62DE3A05D00298271 /* CoinData+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinData+Extension.swift"; sourceTree = "<group>"; };
 		99A745E82DE3A17F00298271 /* CoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSource.swift; sourceTree = "<group>"; };
 		99A745EA2DE3BABF00298271 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		99A745EC2DE3C62700298271 /* UITableVIew+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableVIew+Empty.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				99A745C92DE2032400298271 /* NumberFormatters.swift */,
 				99A745EA2DE3BABF00298271 /* UIViewController+Alert.swift */,
+				99A745EC2DE3C62700298271 /* UITableVIew+Empty.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				99A745D52DE265A400298271 /* FavoritesListViewController.swift in Sources */,
 				9941A7DC2DDCE49B00B2AA3C /* CryptoListViewController.swift in Sources */,
 				99A745E92DE3A17F00298271 /* CoreDataSource.swift in Sources */,
+				99A745ED2DE3C62700298271 /* UITableVIew+Empty.swift in Sources */,
 				9908D5372DE0CE520084180C /* CryptoListDetailViewModel.swift in Sources */,
 				9908D52D2DE09A6B0084180C /* DataPeriod.swift in Sources */,
 				9908D5292DE095BB0084180C /* EndpointAPI.swift in Sources */,
