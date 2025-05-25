@@ -91,7 +91,15 @@ final class CryptoListViewController: UIViewController {
                 switch value {
                     case .loading:
                         self.spinnerView(needShow: true)
-                    case .failed(_):
+                    case .failed(let error):
+                        switch error {
+                            case .noInternet:
+                                print("no interner")
+                            case .backend(let code):
+                                print("server error code: \(code)")
+                            case .decoding:
+                                print("parsing error")
+                        }
                         self.spinnerView(needShow: false)
                     case .idle:
                         self.spinnerView(needShow: false)

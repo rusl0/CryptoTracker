@@ -13,7 +13,7 @@ final class CryptoListViewModel {
     private var cancellables = Set<AnyCancellable>()
     
     var coordinator: ListCoordinator
-    
+    private var coreDataDataSoource: CoreDataSource = CoreDataSource()
     private var filtered: [CoinInfo] = []
     private var total: [CoinInfo] = []
     private var currentPage = 1
@@ -53,7 +53,10 @@ final class CryptoListViewModel {
                             self.dataState = .failed(.backend(code))
                         }
                         if error.isSessionTaskError {
-                            self.dataState = .failed(.noInternet)
+                            if self.dataState != .failed(.noInternet) {
+                                self.dataState = .failed(.noInternet)
+                            }
+                            self.cryptCoinsData = self.coreDataDataSoource.loadData(withOrder: sortOrder)
                         }
                         if error.isResponseSerializationError {
                             self.dataState = .failed(.decoding)
@@ -65,6 +68,8 @@ final class CryptoListViewModel {
                 }
             } receiveValue: { [weak self] value in
                 guard let self = self else {return}
+                
+                self.coreDataDataSoource.addCoins(value)
                 
                 if appending {
                     self.total.append(contentsOf: value)
